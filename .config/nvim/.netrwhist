@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =8
+let g:netrw_dirhist_8='/home/jesper/.config/nvim'
+let g:netrw_dirhist_7='/home/jesper/.dotfiles/i3old'
+let g:netrw_dirhist_6='/home/jesper/.config'
+let g:netrw_dirhist_5='/home/jesper/.config/autostart'
+let g:netrw_dirhist_4='/home/jesper/.config'
+let g:netrw_dirhist_3='/home/jesper/Downloads'
+let g:netrw_dirhist_2='/home/jesper/.dotfiles/i3old'
+let g:netrw_dirhist_1='/home/jesper/.dotfiles/i3'
