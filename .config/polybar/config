@@ -60,7 +60,7 @@ font-1 =
 font-2 =
 
 modules-left = i3
-modules-center =
+modules-center = polybar-playerctl
 modules-right = temperature pulseaudio cpu wired-network
 
 module-margin = 2
@@ -98,3 +98,9 @@ base-temperature = 30
 warn-temperature = 80
 base-temperature-underline = ${colors.primary}
 warn-temperature-underline = #f00
+
+[module/polybar-playerctl]
+type = custom/script
+exec = $HOME/.config/polybar/modules/polybar-playerctl/polybar-playerctl.sh
+click-left = $HOME/.config/polybar/modules/polybar-playerctl/polybar-playerctl-playpause.sh &
+format-underline = ${colors.primary}

@@ -1,3 +1,8 @@
+set termguicolors
+" Always source these
 source $HOME/.config/nvim/vim-plug/plugins.vim
-source $HOME/.config/nvim/plug-config/:
-lua require'plug-colorizer'
+
+" Addons
+luafile $HOME/.config/nvim/lua/plug-colorizer.lua
+source $HOME/.config/nvim/plug-config/start-screen.vim
+source $HOME/.config/nvim/plug-config/rainbow_parentheses.vim

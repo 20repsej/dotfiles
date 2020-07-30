@@ -13,6 +13,7 @@ HISTFILE=~/.histfile
 HISTSIZE=1000
 SAVEHIST=1000
 EDITOR=nvim
+COLORTERM=truecolor
 setopt autocd
 bindkey -v
 # End of lines configured by zsh-newuser-install
