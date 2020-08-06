@@ -1,6 +1,6 @@
 ; Polybar config
 ; Author: 20repsej
-: Date: 12/7/2020
+; Date: 12/7/2020
 
 [colors]
 background = ${xrdb:color0:#222}
@@ -12,6 +12,13 @@ alert = ${xrdb:color3:#222}
 line = ${xrdb:color1:#222}
 [global/wm]
 margin-bottom = 0
+
+[bar/test]
+width = 100%
+height = 25
+underline-size = 2
+underline-color = ${colors.line}
+modules-left = polybar-playerctl
 
 [bar/hdmi]
 
@@ -60,7 +67,7 @@ font-1 =
 font-2 =
 
 modules-left = i3
-modules-center = polybar-playerctl
+modules-center = polybar-playerctl underlineTest
 modules-right = temperature pulseaudio cpu wired-network
 
 module-margin = 2
@@ -104,3 +111,7 @@ type = custom/script
 exec = $HOME/.config/polybar/modules/polybar-playerctl/polybar-playerctl.sh
 click-left = $HOME/.config/polybar/modules/polybar-playerctl/polybar-playerctl-playpause.sh &
 format-underline = ${colors.primary}
+
+[module/underlineTest]
+type = custom/script
+exec = $HOME/.config/polybar/modules/underlineProgress/underlineTest.sh
