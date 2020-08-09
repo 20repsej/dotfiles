@@ -46,11 +46,11 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminal
+bindsym $mod+Return exec terminator
 
 # Firefox
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $mod+Shift+q exec firefox
 bindsym $mod+x kill
 
 # start program launcher
