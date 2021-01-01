@@ -1,0 +1,159 @@
+; Polybar config
+; Author: 20repsej
+; Date: 29/11/2020
+; More than one bar for each screen
+
+[colors]
+background = ${xrdb:color0:#222}
+foreground = ${xrdb:color7:#222}
+foreground-alt = ${xrdb:color7:#222}
+primary = ${xrdb:color1:#222}
+secondary = ${xrdb:color2:#222}
+alert = ${xrdb:color3:#222}
+four = ${xrdb:color4:#222}
+line = ${xrdb:color2:#222}
+[global/wm]
+margin-bottom = 0
+
+[bar/test]
+width = 100%
+height = 25
+underline-size = 2
+underline-color = ${colors.line}
+modules-left = polybar-playerctl
+
+[bar/hdmi]
+
+monitor = DP-2
+width = 100%
+height = 30
+
+fixed-center = true
+tray-position = right
+tray-background = $colors.foreground}
+tray-detached = false
+tray-underline = ${colors.line}
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+wm-restack = bspwm
+
+underline-size = 2
+underline-color = ${colors.line}
+
+font-0 = "Fira Mono:style=Regular:pixelsize=13;0"
+font-1 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=13:0"
+font-2 =
+
+modules-left = bspwm 
+modules-center = polybar-playerctl
+modules-right = date
+
+module-margin = 1
+
+separator = |
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+[bar/dvi]
+
+monitor = HDMI-0
+width = 100%
+height = 30
+
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+wm-restack = bspwm
+
+underline-size = 2
+underline-color = ${colors.line}
+
+font-0 = "Fira Mono:style=Regular:pixelsize=13;0"
+font-1 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=13:0"
+font-2 =
+
+modules-left = bspwm
+modules-center = polybar-playerctl
+modules-right = temperature pulseaudio cpu wired-network
+
+module-margin = 1
+
+separator = |
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+
+[module/i3]
+type = internal/i3
+pin-workspaces = true
+
+[module/bspwm]
+type = internal/bspwm
+pin-workspaces = true
+enable-click = true
+enable-scroll = true
+label-focused-underline = ${colors.line}
+label-occupied-foreground = ${colors.line}
+#label-occupied-underline = ${colors.line}
+label-focused-foreground = ${colors.line}
+
+[module/wired-network]
+type = internal/network
+interface = eno1
+interval = 3.0
+
+label-connected =  %local_ip%
+label-disconnected =  %local_ip%
+format-connected-underline = ${colors.line}
+format-disconnected-underline = #f00
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+label =  %percentage%%
+label-underline = ${colors.line}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+label-volume = 奄%percentage%%
+label-underline = ${colors.line}
+
+[module/temperature]
+type = internal/temperature
+format = <label>
+label =  %temperature-c%
+interval = 1
+base-temperature = 30
+warn-temperature = 80
+base-temperature-underline = ${colors.line}
+label-underline = ${colors.line}
+warn-temperature-underline = #f00
+
+[module/polybar-playerctl]
+type = custom/script
+exec = $HOME/.config/polybar/modules/polybar-playerctl-progress/polybar-playerctl.sh
+click-left = $HOME/.config/polybar/modules/polybar-playerctl-progress/polybar-playerctl-playpause.sh &
+format-underline = ${colors.line}
+
+[module/underlineTest]
+type = custom/script
+exec = $HOME/.config/polybar/modules/underlineProgress/underlineTest.sh
+
+[module/date]
+type = internal/date
+interval = 1.0
+date = %Y-%m-%d%
+time = %H:%M
+time-alt = %H:%M:%S
+format = <label>
+format-underline = ${colors.line}
+label =  %date% %time%
+
+[module/popup-calendar]
+type = custom/script
+exec = ~/.config/polybar/modules/calendar.sh
+interval = 5
+click-left = ~/.config/polybarmodules/calendar.sh --popup &
