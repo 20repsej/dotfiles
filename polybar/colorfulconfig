@@ -1,6 +1,6 @@
 ; New Polybar config
 ; DP and HDMI bar
-; 20201129
+; 2021-10-05
 ; 20repsej
 
 [colors]
@@ -17,18 +17,22 @@ bottom = false
 fixed-center = true
 
 ; Size
-height = 30
-width = 100%
+offset-x = 40%
+offset-y = 10
+height = 26 
+width = 20%
 padding-right = 1
 padding-left = 1
-border-size = 3
-border-color = ${colors.background}
+radius = 6
+; border-size = 3
+; border-color = ${colors.background}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = "Fira Mono:style=Regular:pixelsize=13;0"
-font-1 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=13:0"
+font-0 = "Fira Mono:style=Regular:pixelsize=17;3"
+font-1 = "FontAwesome:style=SemiBold Italic,Italic:pixelsize=17;3"
+font-2 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=17;3"
 
 modules-left = 
 modules-right = 
@@ -47,22 +51,61 @@ bottom = false
 fixed-center = true
 
 ; Size
-height = 30
-width = 100%
+offset-x = 40%
+offset-y = 10
+height = 26
+width = 20%
 padding-right = 1
 padding-left = 1
-border-size = 3
-border-color = ${colors.background}
+radius = 6
+; border-size = 3
+; border-color = ${colors.background}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-font-0 = "Fira Mono:style=Regular:pixelsize=13;0"
-font-1 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=13:0"
+font-0 = "Fira Mono:style=Regular:pixelsize=17;3"
+font-1 = "FontAwesome:style=SemiBold Italic,Italic:pixelsize=17;3"
+font-2 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=17;3"
 
-modules-left = pulseaudio updates-pacman-aurhelper wired-network
-modules-right = memory cpu temperature date
+
+;modules-left = pulseaudio updates-pacman-aurhelper wired-network
+;modules-right = memory cpu temperature date
 modules-center = bspwm
+
+;tray-position = right
+;tray-detatched = false
+
+module-margin-left = 1
+module-margin-right = 1
+
+[bar/HDMIRIGHT]
+; Position
+monitor = HDMI-0 
+bottom = false
+
+fixed-center = true
+
+; Size
+offset-x = 63%
+offset-y = 10
+height = 26
+width = 35%
+padding-right = 1
+padding-left = 1
+radius = 6
+; border-size = 3
+; border-color = ${colors.background}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = "Fira Mono:style=Regular:pixelsize=17;3"
+font-1 = "FontAwesome:style=SemiBold Italic,Italic:pixelsize=17;3"
+font-2 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=17;3"
+
+
+modules-center = memory cpu temperature date
 
 tray-position = right
 tray-detatched = false
@@ -70,12 +113,45 @@ tray-detatched = false
 module-margin-left = 1
 module-margin-right = 1
 
+
+[bar/HDMILEFT]
+; Position
+monitor = HDMI-0 
+bottom = false
+
+fixed-center = true
+
+; Size
+offset-x = 2%
+offset-y = 10
+height = 26
+width = 23%
+padding-right = 1
+padding-left = 1
+radius = 6
+; border-size = 3
+; border-color = ${colors.background}
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+font-0 = "Fira Mono:style=Regular:pixelsize=17;3"
+font-1 = "FontAwesome:style=SemiBold Italic,Italic:pixelsize=17;3"
+font-2 = "NotoSans Nerd Font Mono:style=SemiBold Italic,Italic:pixelsize=17;3"
+
+
+modules-center = pulseaudio updates-pacman-aurhelper wired-network
+
+module-margin-left = 1
+module-margin-right = 1
+
+
 [module/bspwm]
 type                      = internal/bspwm
-label-focused             = 
+label-focused             = 
 label-focused-padding     = 2
 label-focused-foreground  = #b877db
-label-occupied            = 
+label-occupied            = 
 label-occupied-padding    = 2
 label-occupied-foreground = #21bfc2
 label-urgent              = 
@@ -90,8 +166,8 @@ pin-workspaces = true
 type = internal/pulseaudio
 
 format-volume =<label-volume>
-label-muted = 
-label-volume = 奄%percentage%%
+label-muted =  
+label-volume = %percentage%%
 label-volume-background = #21bfc2
 label-muted-background = #21bfc2
 label-muted-padding = 1
@@ -101,7 +177,7 @@ label-volume-padding = 1
 type = internal/cpu
 interval = 0.5
 format =<label>
-label = %percentage%%
+label = %percentage%%
 label-background = #09f7a0
 label-padding = 1
 
@@ -115,7 +191,7 @@ label-padding = 1
 
 [module/date]
 type = internal/date
-label =  %date% %time%
+label = %date% %time%
 interval = 1.0
 date = %Y-%m-%d
 time = %H:%M

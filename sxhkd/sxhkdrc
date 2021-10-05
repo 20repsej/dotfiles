@@ -1,14 +1,15 @@
 #
 # wm independent hotkeys
 #
+# 2021-10-05
 
 # terminal emulator
 super + Return
-	alacritty
+	terminator
 
 # Firefox
 super + w
-	firefox
+	chromium
 
 # File Manager
 super + @space
